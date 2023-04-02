@@ -38,7 +38,7 @@ upper left crop (a quarter)</br>
 `ffmpeg -i input.mp4 -filter:v "crop=iw/2:ih/2:0:0" output.mp4`</br>
 
 Oval shaped video (black background and transparent oval)</br>
-`ffmpeg -i input.mp4 -i circle-hd.png -filter_complex "[0:v][1] overlay=0:0" output.mp4`</br>
+`ffmpeg -i input.mp4 -i circle-hd.png -filter_complex "[0][1] overlay=0:0" output.mp4`</br>
 
 </br>**Extras:**
 
