@@ -40,6 +40,9 @@ upper left crop (a quarter)</br>
 Oval shaped video (black background and transparent oval)</br>
 `ffmpeg -i input.mp4 -i circle-hd.png -filter_complex "[0][1] overlay=0:0" output.mp4`</br>
 
+Play two small videos diagonal (quarter hd resolution videos 990x540)</br>
+`ffmpeg -i black-hd.png -i input2.mp4 -i input3.mp4 -filter_complex "[0][1] overlay=0:0[out];[out][2] overlay=990:540" output.mp4`</br>
+
 </br>**Extras:**
 
 Get the time and number of frames</br>
