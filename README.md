@@ -58,7 +58,7 @@ Make GIF from video (with own color palette, -1 = keep aspect ratio)</br>
 `ffmpeg -i input.mp4 -ss 0:0:10 -t 0:0:5 -c:v copy -c:a copy input2.mp4`</br>
 `ffmpeg -i input2.mp4 -vf "fps=15,scale=240:-1:flags=lanczos,palettegen" -y palette.png`</br>
 `ffmpeg -i input2.mp4 -i palette.png -lavfi "fps=15,scale=240:-1:flags=lanczos[x];[x][1:v]paletteuse" -y output.gif`</br>
-with oval shape</br>
+with oval shape (black must be replaced with transparency)</br>
 `ffmpeg -i overlay.gif -i circle-hd.png -filter_complex "[1]scale=240:-1[out];[0][out] overlay=0:0" overlay.gif`</br>
 
 Use a GIF as an overlay (e.g. watermark)</br>
