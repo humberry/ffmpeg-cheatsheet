@@ -37,6 +37,15 @@ in the middle 100px * 100px</br>
 upper left crop (a quarter)</br>
 `ffmpeg -i input.mp4 -filter:v "crop=iw/2:ih/2:0:0" output.mp4`</br>
 
+Get the time and number of frames</br>
+`ffmpeg -i input.mp4 -vcodec copy -acodec copy -f null NUL`</br>
+
+Create a short clip for testing (5 seconds, skip first 10 seconds)</br>
+`ffmpeg -i input.mp4 -ss 0:0:10 -t 0:0:5 -c:v copy -c:a copy output.mp4`</br>
+
+Video screenshot (after 5 seconds make 25 screenshots with the best quality)</br>
+`ffmpeg -i input.mp4 -ss 0:0:5 -vframes 25 -qscale:v 1 -qmin 1 screenshot-%02d.jpg`</br>
+
 </br>**Abbreviations:**
 
 CRF = Constant Rate Factor (Constant Quality)</br>
@@ -45,3 +54,6 @@ CBR = Constant Bitrate</br>
 VBR = Variable Bitrate
 
 </br>Search for "YouTube recommended upload encoding settings", for some encoding recommendations (e.g. bitrates).
+
+External links disclaimer:<br>
+I'm not responsible for the content of external websites.<br>
