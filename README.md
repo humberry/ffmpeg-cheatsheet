@@ -54,6 +54,14 @@ Create a short clip for testing (5 seconds, skip first 10 seconds)</br>
 Video screenshot (after 5 seconds make 25 screenshots with the best quality)</br>
 `ffmpeg -i input.mp4 -ss 0:0:5 -vframes 25 -qscale:v 1 -qmin 1 screenshot-%02d.jpg`</br>
 
+Make GIF from video (with own color palette, -1 = keep aspect ratio)</br>
+`ffmpeg -i input.mp4 -ss 0:0:10 -t 0:0:5 -c:v copy -c:a copy input2.mp4`</br>
+`ffmpeg -i input2.mp4 -vf "fps=15,scale=640:-1:flags=lanczos,palettegen" -y palette.png`</br>
+`ffmpeg -i input2.mp4 -i palette.png -lavfi "fps=15,scale=640:-1:flags=lanczos[x];[x][1:v]paletteuse" -y output.gif`</br>
+
+[FFmpeg - The Ultimate Guide](https://img.ly/blog/ultimate-guide-to-ffmpeg/)</br>
+[FFmpeg Filters Documentation ](https://ffmpeg.org/ffmpeg-filters.html)</br>
+
 </br>**Abbreviations:**
 
 CRF = Constant Rate Factor (Constant Quality)</br>
