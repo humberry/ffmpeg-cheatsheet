@@ -45,8 +45,8 @@ Play two small videos diagonal (quarter hd resolution videos 990x540)</br>
 
 Use a second video as an overlay (e.g. watermark / position=50:50 / overlay.mp4 with black background e.g. circle-hd.png)</br>
 `ffmpeg -i input.mp4 -i overlay.mp4 -filter_complex "[1:v]colorkey=0x000000[ol];[0:v][ol]overlay=50:50[out]" -map "[out]" -map 0:a -c:a copy output.mp4`</br>
-if the overlay video is shorter just repeat it (this time the overlay.mp4 has a white background / similarity=0.05 / blend=1.0)</br>
-`ffmpeg -i input.mp4 -stream_loop -1 -i overlay.mp4 -filter_complex "[1:v]scale=-1:180,colorkey=0xFFFFFF:0.05:1.0[ol];[0:v][ol]overlay=50:50:shortest=1[out]" -map "[out]" -map 0:a -c:a copy output.mp4`</br>
+if the overlay video is shorter just repeat it (this time the overlay.mp4 has a white background / similarity=0.2 / blend=0.3)</br>
+`ffmpeg -i input.mp4 -stream_loop -1 -i overlay.mp4 -filter_complex "[1:v]scale=-1:180,colorkey=0xFFFFFF:0.2:0.3[ol];[0:v][ol]overlay=50:50:shortest=1[out]" -map "[out]" -map 0:a -c:a copy output.mp4`</br>
 
 </br>**Extras:**
 
