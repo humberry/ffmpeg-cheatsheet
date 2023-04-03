@@ -43,6 +43,9 @@ Oval shaped video (black background and transparent oval)</br>
 Play two small videos diagonal (quarter hd resolution videos 990x540)</br>
 `ffmpeg -i black-hd.png -i input2.mp4 -i input3.mp4 -filter_complex "[0][1] overlay=0:0[out];[out][2] overlay=990:540" output.mp4`</br>
 
+Use a second video as an overlay (e.g. watermark / position=50:50 / overlay.mp4 with black background e.g. circle-hd.png)</br>
+`ffmpeg -i input.mp4 -i overlay.mp4 -filter_complex "[1:v]colorkey=0x000000[ol];[0:v][ol]overlay=50:50[out]" -map "[out]" -map 0:a -c:a copy output.mp4`</br>
+
 </br>**Extras:**
 
 Get the time and number of frames</br>
@@ -58,9 +61,6 @@ Make GIF from video (with own color palette, -1 = keep aspect ratio)</br>
 `ffmpeg -i input.mp4 -ss 0:0:10 -t 0:0:5 -c:v copy -c:a copy input2.mp4`</br>
 `ffmpeg -i input2.mp4 -vf "fps=15,scale=240:-1:flags=lanczos,palettegen" -y palette.png`</br>
 `ffmpeg -i input2.mp4 -i palette.png -lavfi "fps=15,scale=240:-1:flags=lanczos[x];[x][1:v]paletteuse" -y output.gif`</br>
-
-Use a second video as an overlay (e.g. watermark / position=50:50 / overlay.mp4 with black background e.g. circle-hd.png)</br>
-`ffmpeg -i input.mp4 -i overlay.mp4 -filter_complex "[1:v]colorkey=0x000000[ol];[0:v][ol]overlay=50:50[out]" -map "[out]" -map 0:a -c:a copy output.mp4`</br>
 
 [FFmpeg - The Ultimate Guide](https://img.ly/blog/ultimate-guide-to-ffmpeg/)</br>
 [FFmpeg Filters Documentation ](https://ffmpeg.org/ffmpeg-filters.html)</br>
