@@ -64,6 +64,16 @@ Make GIF from video (with own color palette, -1 = keep aspect ratio)</br>
 `ffmpeg -i input2.mp4 -vf "fps=15,scale=240:-1:flags=lanczos,palettegen" -y palette.png`</br>
 `ffmpeg -i input2.mp4 -i palette.png -lavfi "fps=15,scale=240:-1:flags=lanczos[x];[x][1:v]paletteuse" -y output.gif`</br>
 
+Get all DirectShow Devices (e.g. Stereomix, works for me with headspeakers)</br>
+`ffmpeg -list_devices true -f dshow -i dummy`</br>
+`ffmpeg -f dshow -i audio="Stereomix (Realtek(R) Audio)" -acodec libmp3lame output.mp3`</br>
+
+Record desktop with gdigrab and downscale to 720p</br>
+`ffmpeg -f gdigrab -framerate 15 -i desktop -c:v h264_nvenc -rc 0 -vf "scale=-1:720" output.mp4`</br>
+
+Record desktop 1080p/30 with audio</br>
+`ffmpeg -f gdigrab -framerate 30 -i desktop -f dshow -i audio="Stereomix (Realtek(R) Audio)" -acodec libmp3lame -c:v h264_nvenc -rc 0 -vf "scale=-1:1080" output.mp4`</br>
+
 [FFmpeg - The Ultimate Guide](https://img.ly/blog/ultimate-guide-to-ffmpeg/)</br>
 [FFmpeg Filters Documentation ](https://ffmpeg.org/ffmpeg-filters.html)</br>
 
