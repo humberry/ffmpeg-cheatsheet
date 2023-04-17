@@ -64,6 +64,9 @@ Make GIF from video (with own color palette, -1 = keep aspect ratio)</br>
 `ffmpeg -i input2.mp4 -vf "fps=15,scale=240:-1:flags=lanczos,palettegen" -y palette.png`</br>
 `ffmpeg -i input2.mp4 -i palette.png -lavfi "fps=15,scale=240:-1:flags=lanczos[x];[x][1:v]paletteuse" -y output.gif`</br>
 
+Make video from images (01.jpg - 99.jpg, only 1 image per second, looped 3 times, RGB2YUV)</br>
+`ffmpeg -framerate 1 -stream_loop 3 -f image2 -i %02d.jpg -c:v libx264 -pix_fmt yuv420p output.mp4`</br>
+
 Get all DirectShow Devices (e.g. Stereomix, works for me with headspeakers)</br>
 `ffmpeg -list_devices true -f dshow -i dummy`</br>
 `ffmpeg -f dshow -i audio="Stereomix (Realtek(R) Audio)" -acodec libmp3lame output.mp3`</br>
