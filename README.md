@@ -67,15 +67,19 @@ Make GIF from video (with own color palette, -1 = keep aspect ratio)</br>
 Make video from images (01.jpg - 99.jpg, only 1 image per second, looped 3 times, RGB2YUV)</br>
 `ffmpeg -framerate 1 -stream_loop 3 -f image2 -i %02d.jpg -c:v libx264 -pix_fmt yuv420p output.mp4`</br>
 
-Get all DirectShow Devices (e.g. Stereomix, works for me with headspeakers)</br>
+Get all Windows DirectShow Devices (e.g. Stereomix, works for me with headspeakers)</br>
 `ffmpeg -list_devices true -f dshow -i dummy`</br>
 `ffmpeg -f dshow -i audio="Stereomix (Realtek(R) Audio)" -acodec libmp3lame output.mp3`</br>
 
-Record desktop with gdigrab and downscale to 720p</br>
+Record Windows desktop with gdigrab and downscale to 720p</br>
 `ffmpeg -f gdigrab -framerate 15 -i desktop -c:v h264_nvenc -rc 0 -vf "scale=-1:720" output.mp4`</br>
 
-Record desktop 1080p/30 with audio</br>
+Record Windows desktop 1080p/30 with audio</br>
 `ffmpeg -f gdigrab -framerate 30 -i desktop -f dshow -i audio="Stereomix (Realtek(R) Audio)" -acodec libmp3lame -c:v h264_nvenc -rc 0 -vf "scale=-1:1080" output.mp4`</br>
+
+Record Linux desktop</br>
+`xwininfo | grep -B 1 "geometry"` (e.g. Corners: +70+27 ...     -geometry 1280x720-0-0)</br>
+`ffmpeg -video_size 1280x720 -framerate 25 -f x11grab -i :0.0+70,27 output.mp4`</br>
 
 [FFmpeg - The Ultimate Guide](https://img.ly/blog/ultimate-guide-to-ffmpeg/)</br>
 [FFmpeg Filters Documentation ](https://ffmpeg.org/ffmpeg-filters.html)</br>
