@@ -5,7 +5,7 @@ reencoding via CPU (default parameters `-crf 23 -preset medium`):</br>
 `ffmpeg -i input.mp4 -c:v libx264 -c:a copy output.mp4`
 
 reencoding via Nvidia (default parameters `-rc -1 -preset medium -profile main`):</br>
-`ffmpeg -i input.mp4 -c:v h264_nvenc -c:a copy output.mp4`
+`ffmpeg -i input.mp4 -c:v h264_nvenc -c:a copy output.mp4`</br>
 (ˋ-cq:v 21ˋ)
 
 reencoding via AMD (default parameters `-qp_i 22 -qp_b 22 -qp_p 22 -profile main`):</br>
