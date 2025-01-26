@@ -90,7 +90,14 @@ Record Linux desktop</br>
 CRF = Constant Rate Factor (Constant Quality)</br>
 CQP = Constant Quantization Parameter (~Constant Bitrate)</br>
 CBR = Constant Bitrate</br>
-VBR = Variable Bitrate
+VBR = Variable Bitrate</br>
+
+</br>**Colorspaces (under construction):**
+
+HD  > rec.709/bt.709 (~35% / 8bits / 16.7m colors)</br>
+UHD > DCI-P3 (~50% / 10bits / 1.07b colors)</br>
+UHD > rec.2020/bt.2020 (~76% / 10/12bits / 69b colors</br>
+UHD > rec.2100 (? / 10/12bits / ?) <b>P</b>erceptual <b>Q</b>uantisation and <b>H</b>ybrid <b>L</b>og-<b>G</b>amma (D65 = 6500K)</br>
 
 </br>Search for "YouTube recommended upload encoding settings", for some encoding recommendations (e.g. bitrates).
 
