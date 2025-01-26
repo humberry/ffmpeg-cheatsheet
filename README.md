@@ -97,7 +97,7 @@ VBR = Variable Bitrate</br>
 HD  > rec.709/bt.709 (~35% / 8bits / 16.7m colors)</br>
 UHD > DCI-P3 (~50% / 10bits / 1.07b colors)</br>
 UHD > rec.2020/bt.2020 (~76% / 10/12bits / 69b colors)</br>
-HD+UHD > rec.2100/bt.2100 (extension of rec.2020) 2x HDR: <b>P</b>erceptual <b>Q</b>uantisation (HDR10 and Dolby Vision)</br>
+HD+UHD > rec.2100/bt.2100 (extension of rec.2020) 2x HDR: <b>P</b>erceptual <b>Q</b>uantisation (HDR10+ and Dolby Vision)</br>
 and <b>H</b>ybrid <b>L</b>og-<b>G</b>amma (tv broadcasting) // (D65 = 6500K)</br>
 
 HDMI 2.0a  HDR10</br>
