@@ -92,7 +92,7 @@ CQP = Constant Quantization Parameter (~Constant Bitrate)</br>
 CBR = Constant Bitrate</br>
 VBR = Variable Bitrate</br>
 
-</br>**Colorspaces (under construction):**
+</br>**Colorspaces and interfaces:**
 
 HD  > rec.709/bt.709 (~35% / 8bits / 16.7m colors)</br>
 UHD > DCI-P3 (~50% / 10bits / 1.07b colors)</br>
